@@ -1,17 +1,33 @@
 .sidebar {
     position: fixed;
-    background: #000;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    background: linear-gradient( 180deg, #181053 -21.94%, #301840 17.1%, #3f033b 62.89%, #592635 110.93%);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 250px;
     height: 100%;
-    padding: 30px 20px;
+    padding: 16px 16px 28px;
     transition: width 0.2s ease-in;
+    .toggler {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        fill: #ffffff66;
+        transition: fill 0.2s;
+        &:hover {
+            fill: #ffffff;
+        }
+    }
 }
 
 .sidebar_inactive {
     width: 80px;
-     :global {
-        .toggle-menu-btn {
-            right: -50px;
+    .toggler {
+        right: -50px;
+        fill: #333;
+        &:hover {
             fill: #000;
         }
     }
@@ -19,10 +35,16 @@
         left: 10px;
         top: 20px;
     }
+    .sidebarLogo {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
 }
 
 .sidebarTop {
     position: relative;
+    margin-bottom: 38px;
 }
 
 .sidebarLogo {
@@ -36,62 +58,35 @@
     max-width: 100%;
 }
 
-.sidebar {
-    .toggler {
-        background-color: red;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
+.sidebarMenu {
+    .mainMenuIcon {
+        padding-left: 16px;
+        padding-right: 12px;
     }
 }
 
-.sidebarSearch {
-    position: relative;
+.sidebarFooter {
+    margin-top: auto;
 }
 
-.sidebarSearchButton {
-    position: absolute;
+.sidebarFooterButton {
     background: transparent;
-    border: 0;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-}
-
-.sidebarSearchIcon {
-    width: 20px;
-    height: 20px;
-    fill: #666;
-}
-
-.sidebarSearchInput {
-    border: none;
-    outline: none;
-    height: 35px;
-    background: #333;
-    border-radius: 5px;
-    display: block;
-    margin: 20px 0;
-    padding-left: 40px;
+    border: 1px solid #ffffff14;
+    padding: 8px 16px;
     width: 100%;
-    color: #eee;
-}
-
-.sidebarDivider {
-    width: 100%;
-    height: 1px;
-    border-radius: 1px;
-    background: #333;
-}
-
-.sidebarMainMenuItem {
-    color: #333;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    display: block;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 8px;
+    color: #ffffff66;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
     &:hover {
-        color: #444;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+    }
+    .sidebarFooterButtonIcon {
+        margin-right: 22px;
     }
 }
