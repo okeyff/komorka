@@ -4,6 +4,21 @@
     width: 300px;
     height: 100%;
     padding: 30px 20px;
+    transition: width 0.2s ease-in;
+}
+
+.sidebar_inactive {
+    width: 80px;
+     :global {
+        .toggle-menu-btn {
+            right: -50px;
+            fill: #000;
+        }
+    }
+    .sidebarSearchButton {
+        left: 10px;
+        top: 20px;
+    }
 }
 
 .sidebarTop {
@@ -19,6 +34,15 @@
 
 .sidebarLogoImg {
     max-width: 100%;
+}
+
+.sidebar {
+    .toggler {
+        background-color: red;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
 }
 
 .sidebarSearch {
@@ -48,7 +72,7 @@
     border-radius: 5px;
     display: block;
     margin: 20px 0;
-    padding: 0 30px;
+    padding-left: 40px;
     width: 100%;
     color: #eee;
 }
@@ -58,4 +82,16 @@
     height: 1px;
     border-radius: 1px;
     background: #333;
+}
+
+.sidebarMainMenuItem {
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    transition: color 0.2s;
+    &:hover {
+        color: #444;
+    }
 }
