@@ -1,92 +1,108 @@
+$SMALL_SIDEBAR_WIDTH: 48px;
+$BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+120px;
 .sidebar {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: space-between;
-    background: linear-gradient( 180deg, #181053 -21.94%, #301840 17.1%, #3f033b 62.89%, #592635 110.93%);
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    width: 250px;
+    grid-area: sidebar;
+    position: sticky;
     height: 100%;
-    padding: 16px 16px 28px;
-    transition: width 0.2s ease-in;
-    .toggler {
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        fill: #ffffff66;
-        transition: fill 0.2s;
-        &:hover {
-            fill: #ffffff;
-        }
-    }
+    min-height: calc(768px - 16px);
+    width: $SMALL_SIDEBAR_WIDTH;
 }
 
-.sidebar_inactive {
-    width: 80px;
-    .toggler {
-        right: -50px;
-        fill: #333;
-        &:hover {
-            fill: #000;
-        }
-    }
-    .sidebarSearchButton {
-        left: 10px;
-        top: 20px;
-    }
-    .sidebarLogo {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-}
-
-.sidebarTop {
-    position: relative;
-    margin-bottom: 38px;
-}
-
-.sidebarLogo {
-    width: 40px;
-    height: 40px;
+.sidebarList {
+    padding-top: 32px;
+    display: flex;
+    width: $SMALL_SIDEBAR_WIDTH;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient( 180deg, #181053 -21.94%, #301840 17.1%, #3f033b 62.89%, #592635 110.93%);
+    height: 100%;
     overflow: hidden;
-    display: inline-block;
-}
-
-.sidebarLogoImg {
-    max-width: 100%;
-}
-
-.sidebarMenu {
-    .mainMenuIcon {
-        padding-left: 16px;
-        padding-right: 12px;
+    transition: width 0.3s ease;
+    &:hover {
+        width: $BIG_SIDEBAR_WIDTH;
+        .sidebarListLabel {
+            display: block;
+        }
     }
 }
 
-.sidebarFooter {
-    margin-top: auto;
-}
-
-.sidebarFooterButton {
-    background: transparent;
-    border: 1px solid #ffffff14;
-    padding: 8px 16px;
+.sidebarListItem {
     width: 100%;
+    height: 60px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: start;
-    border-radius: 8px;
-    color: #ffffff66;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease-in;
+    padding: 0 6px;
+    transition: background-color 0.2s ease;
     &:hover {
-        border: 1px solid #ffffff;
-        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.05);
+        .sidebarListLabel {
+            color: #fff;
+        }
+        .sidebarIconContainer {
+            svg {
+                fill: #fff;
+            }
+        }
     }
-    .sidebarFooterButtonIcon {
-        margin-right: 22px;
+}
+
+.sidebarListItem_bottom {
+    margin-top: auto;
+    margin-bottom: 28px;
+}
+
+.sidebarListLink {
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &.active {
+        .sidebarListLabel {
+            color: #fff;
+            // &:after {
+            //     content: '';
+            //     background: #fff;
+            //     border-radius: 10px;
+            //     position: absolute;
+            //     width: 1px;
+            //     height: 60%;
+            //     right: 5px;
+            //     top: 50%;
+            //     transform: translateY(-50%);
+            // }
+        }
+        .sidebarIconContainer {
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+}
+
+.sidebarListLabel {
+    color: #adb5bd;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: Arial;
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
+    display: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebarIconContainer {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    svg {
+        transition: fill 0.3s ease;
+        fill: #adb5bd;
     }
 }

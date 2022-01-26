@@ -1,0 +1,10 @@
+.layout {
+    min-height: 768px;
+    display: grid;
+    grid-template-areas: 'sidebar body';
+    grid-template-columns: auto 1fr;
+}
+
+.layoutContent {
+    grid-area: body;
+}

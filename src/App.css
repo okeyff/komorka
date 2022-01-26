@@ -15,8 +15,9 @@ li {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 body {
-    background-color: #eee;
+    background-color: #F8FAFC;
 }
