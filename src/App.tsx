@@ -1,13 +1,26 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { RoutePath, routes } from './routes';
 import './App.css';
+import NoMatch from './pages/NoMatch';
+import Layout from './components/Layout/Layout';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Sidebar />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {routes.map((route) => (
+            <Route
+              index={RoutePath.HOME === route.path}
+              path={route.path}
+              element={<route.component />}
+              key={route.name}
+            />
+          ))}
+        </Route>
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
