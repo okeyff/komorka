@@ -1,10 +1,15 @@
 .layout {
-    min-height: 768px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.layoutContainer {
     display: grid;
-    grid-template-areas: 'sidebar body';
     grid-template-columns: auto 1fr;
+    height: 100%;
 }
 
 .layoutContent {
-    grid-area: body;
+    padding: 16px 16px 0;
 }

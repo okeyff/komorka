@@ -55,17 +55,17 @@ export const messagesSidebarNavItems: SidebarNavItem[] = [
     icon: MdHome,
   },
   {
-    name: 'Написать сообщение',
+    name: 'Написать',
     path: 'RoutePath.CREATE_MESSAGE',
     icon: MdOutlineCreate,
   },
   {
-    name: 'Проверить сообщения',
+    name: 'Проверить',
     path: RoutePath.MESSAGES,
     icon: MdEmail,
   },
   {
-    name: 'Удалить сообщение',
+    name: 'Удалить',
     path: RoutePath.REMOVED_MESSAGE,
     icon: MdDeleteForever,
   },
@@ -96,13 +96,13 @@ export const routes: Route[] = [
     sidebarNavItems: messagesSidebarNavItems,
   },
   {
-    name: 'Написать сообщение',
+    name: 'Написать',
     path: RoutePath.CREATE_MESSAGE,
     component: CreateMessage,
     sidebarNavItems: messagesSidebarNavItems,
   },
   {
-    name: 'Удалить сообщение',
+    name: 'Удалить',
     path: RoutePath.REMOVED_MESSAGE,
     component: RemovedMessage,
     sidebarNavItems: messagesSidebarNavItems,

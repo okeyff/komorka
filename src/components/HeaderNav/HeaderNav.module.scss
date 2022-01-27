@@ -1,0 +1,100 @@
+.headerNavLogo {
+    width: 100px;
+}
+
+.headerNavListItemLogo {
+    margin-right: 60px;
+}
+
+.headerNavList {
+    display: flex;
+    align-items: center;
+}
+
+// search
+.headerNavListItemSearch {
+    margin-right: auto;
+}
+
+.headerNavSearch {
+    position: relative;
+    margin-right: auto;
+}
+
+.headerNavSearchInput {
+    position: relative;
+    padding: 8px 24px;
+    background: #efeff0;
+    border: 1px solid #efeff0;
+    outline: none;
+    border-radius: 8px;
+}
+
+.headerNavSearchIcon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #6f7985;
+}
+
+// btns
+.headerNavListItemBtns {
+    margin-right: 40px;
+}
+
+.headerNavListItemBtns__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 50%;
+    background: #eee;
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+.headerNavListItemBtns__icon {
+    fill: #6f7985;
+    width: 20px;
+    height: 20px;
+}
+
+//user
+.headerNavUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerNavUserAvatar {
+    margin-right: 16px;
+}
+
+.headerNavUserProfile {
+    display: flex;
+    align-items: center;
+}
+
+.headerNavUserProfileInfo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.headerNavUserTitle {
+    color: #1b1d21;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.headerNavUserSubTitle {
+    color: #808191;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.headerNavUserProfileCaret {
+    fill: #808191;
+}
