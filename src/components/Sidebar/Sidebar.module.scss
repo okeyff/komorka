@@ -1,11 +1,10 @@
 $SMALL_SIDEBAR_WIDTH: 48px;
-$BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+120px;
+$BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+100px;
 .sidebar {
-    grid-area: sidebar;
-    position: sticky;
     height: 100%;
-    min-height: calc(768px - 16px);
     width: $SMALL_SIDEBAR_WIDTH;
+    position: relative;
+    transition: width 0.4s ease;
 }
 
 .sidebarList {
@@ -17,12 +16,34 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+120px;
     background: linear-gradient( 180deg, #181053 -21.94%, #301840 17.1%, #3f033b 62.89%, #592635 110.93%);
     height: 100%;
     overflow: hidden;
-    transition: width 0.3s ease;
-    &:hover {
-        width: $BIG_SIDEBAR_WIDTH;
-        .sidebarListLabel {
-            display: block;
-        }
+    transition: width 0.4s ease;
+}
+
+.sidebarToggler {
+    position: absolute;
+    display: inline-flex;
+    background: #fff;
+    z-index: 2;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    top: 5px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.sidebar_active {
+    width: $BIG_SIDEBAR_WIDTH;
+    .sidebarToggler {
+        right: 6px;
+        top: 6px;
+        transform: translateX(0);
+    }
+    .sidebarListLabel {
+        display: block;
+    }
+    .sidebarList {
+        width: 100%;
     }
 }
 
@@ -49,7 +70,7 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+120px;
 
 .sidebarListItem_bottom {
     margin-top: auto;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
 }
 
 .sidebarListLink {
@@ -86,7 +107,6 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+120px;
     color: #adb5bd;
     line-height: 20px;
     font-size: 16px;
-    font-family: Arial;
     white-space: nowrap;
     text-overflow: clip;
     overflow: hidden;

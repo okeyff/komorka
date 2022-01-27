@@ -1,11 +1,14 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { matchPath, useLocation, NavLink } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { routes } from '../../routes';
+import { MdOutlineArrowBack as IconArrowLeft } from 'react-icons/md';
+import { MdOutlineArrowForward as IconArrowRight } from 'react-icons/md';
 import css from './Sidebar.module.scss';
 
 const Sidebar = () => {
+  const [isActive, setIsActive] = useState(false);
   const location = useLocation();
   const currentRoute = useMemo(
     () => routes.find((route) => matchPath(location.pathname, route.path)),
@@ -13,7 +16,18 @@ const Sidebar = () => {
   );
 
   return (
-    <div className={css.sidebar}>
+    <div className={clsx(css.sidebar, !isActive && css.sidebar_active)}>
+      <div
+        className={css.sidebarToggler}
+        onClick={() => {
+          setIsActive(!isActive);
+        }}>
+        {isActive ? (
+          <IconArrowRight className={css.sidebarTogglerIcon} />
+        ) : (
+          <IconArrowLeft className={css.sidebarTogglerIcon} />
+        )}
+      </div>
       <IconContext.Provider value={{ size: '2em' }}>
         <ul className={css.sidebarList}>
           {currentRoute?.sidebarNavItems?.map((item) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RoutePath, routes } from './routes';
-import './App.css';
+import './App.scss';
 import NoMatch from './pages/NoMatch';
 import Layout from './components/Layout/Layout';
 
