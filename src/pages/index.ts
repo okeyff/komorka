@@ -4,6 +4,6 @@ import Notifications from './Notifications';
 import Messages from './messages/Messages';
 import CreateMessage from './messages/CreateMessage';
 import RemovedMessage from './messages/RemovedMessage';
-import NoMatch from './NoMatch';
+import NoMatch from './NoMatch/NoMatch';
 
 export { Home, Logout, Notifications, Messages, CreateMessage, RemovedMessage, NoMatch };

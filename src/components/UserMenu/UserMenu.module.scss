@@ -1,0 +1,32 @@
+.userMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userMenuAvatar {
+    margin-right: 16px;
+}
+
+.userMenuInfo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.userMenuTitle {
+    color: #1b1d21;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.userMenuSubtitle {
+    color: #808191;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.userMenuCaret {
+    fill: #808191;
+}
