@@ -1,15 +1,15 @@
 import React from 'react';
 import { RoutePath } from '../../routes';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
-import avatar from '../../images/Avatar.png';
-import { MdOutlineNotifications as IconNotifications } from 'react-icons/md';
-import { MdKeyboardArrowDown as IconArrowDown } from 'react-icons/md';
-import { MdSearch as IconSearch } from 'react-icons/md';
-import { MdAccessTime as IconClock } from 'react-icons/md';
-import css from './HeaderNav.module.scss';
 import clsx from 'clsx';
 import Search from '../Search';
+import UserMenu from '../UserMenu';
+import IconButton from '../IconButton';
+import logo from '../../images/logo.png';
+import { MdOutlineNotifications as IconNotifications } from 'react-icons/md';
+import { MdAccessTime as IconClock } from 'react-icons/md';
+import css from './HeaderNav.module.scss';
+
 const HeaderNav = () => {
   return (
     <div className={css.headerNav}>
@@ -20,41 +20,28 @@ const HeaderNav = () => {
           </Link>
         </li>
 
-        <li className={clsx(css.headerNavListItem, css.headerNavListItemSearch)}>
-          <div className={css.headerNavSearch}>
-            <input className={css.headerNavSearchInput} type="text" placeholder="Search" />
-            <IconSearch className={css.headerNavSearchIcon} />
-          </div>
+        <li className={clsx(css.headerNavListItem, css.headerNavSearch)}>
+          <Search placeholder="Search" icon />
         </li>
 
-        <li>
-          <Search placeholder="test" icon={<IconSearch />} />
-        </li>
-
-        <li className={clsx(css.headerNavListItem, css.headerNavListItemBtns)}>
-          <Link to={RoutePath.NOTIFICATIONS} className={css.headerNavListItemBtns__btn}>
-            <IconNotifications className={css.headerNavListItemBtns__icon} />
+        <li className={clsx(css.headerNavListItem, css.headerNavIconButtons)}>
+          <Link to={RoutePath.NOTIFICATIONS} className={css.headerNavIconButtonsLink}>
+            <IconButton>
+              <IconNotifications className={css.headerNavIconButtonsIcon} />
+            </IconButton>
           </Link>
-          <Link to={RoutePath.NOTIFICATIONS} className={css.headerNavListItemBtns__btn}>
-            <IconClock className={css.headerNavListItemBtns__icon} />
+
+          <Link to="/" className={css.headerNavIconButtonsLink}>
+            <IconButton>
+              <IconClock className={css.headerNavIconButtonsIcon} />
+            </IconButton>
           </Link>
         </li>
 
-        <li className={clsx(css.headerNavListItem, css.headerNavListItemUser)}>
-          <div className={css.headerNavUser}>
-            <Link to="/" className={css.headerNavUserAvatar}>
-              <img src={avatar} alt="avatar" />
-            </Link>
-            <Link to="/">
-              <div className={css.headerNavUserProfile}>
-                <div className={css.headerNavUserProfileInfo}>
-                  <span className={css.headerNavUserTitle}>Happy User</span>
-                  <span className={css.headerNavUserSubTitle}>Loggy Fog</span>
-                </div>
-                <IconArrowDown className={css.headerNavUserProfileCaret} />
-              </div>
-            </Link>
-          </div>
+        <li className={clsx(css.headerNavListItem, css.headerNavUserMenu)}>
+          <Link to="/">
+            <UserMenu />
+          </Link>
         </li>
       </ul>
     </div>

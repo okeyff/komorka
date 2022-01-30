@@ -1,3 +1,4 @@
+@import '../../styles/app/core/variables.scss';
 $SMALL_SIDEBAR_WIDTH: 48px;
 $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+100px;
 .sidebar {
@@ -58,11 +59,11 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+100px;
     &:hover {
         background-color: rgba(255, 255, 255, 0.05);
         .sidebarListLabel {
-            color: #fff;
+            color: $secondary-color;
         }
         .sidebarIconContainer {
             svg {
-                fill: #fff;
+                fill: $secondary-color;
             }
         }
     }
@@ -82,7 +83,7 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+100px;
     position: relative;
     &.active {
         .sidebarListLabel {
-            color: #fff;
+            color: $secondary-color;
             // &:after {
             //     content: '';
             //     background: #fff;
@@ -97,7 +98,7 @@ $BIG_SIDEBAR_WIDTH: $SMALL_SIDEBAR_WIDTH+64px+100px;
         }
         .sidebarIconContainer {
             svg {
-                fill: #fff;
+                fill: $secondary-color;
             }
         }
     }

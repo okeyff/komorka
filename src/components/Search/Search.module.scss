@@ -1,0 +1,23 @@
+.search {
+    position: relative;
+}
+
+.searchInput {
+    position: relative;
+    padding: 8px 24px;
+    background: #efeff0;
+    border: 1px solid #efeff0;
+    outline: none;
+    border-radius: 8px;
+    &::placeholder {
+        font-size: 12px;
+    }
+}
+
+.searchIcon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #6f7985;
+}

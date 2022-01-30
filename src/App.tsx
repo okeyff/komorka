@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RoutePath, routes } from './routes';
 import './App.scss';
-import NoMatch from './pages/NoMatch';
+import NoMatch from './pages/NoMatch/NoMatch';
 import Layout from './components/Layout/Layout';
 
 export default function App() {

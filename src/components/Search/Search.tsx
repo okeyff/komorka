@@ -1,17 +1,19 @@
 import React from 'react';
+import clsx from 'clsx';
+import { MdSearch as IconSearch } from 'react-icons/md';
 import css from './Search.module.scss';
 
 interface Props {
   className?: string;
   placeholder?: string;
-  icon?: React.ReactElement;
+  icon?: boolean;
 }
 
 const Search: React.FC<Props> = ({ className, placeholder, icon }) => {
   return (
-    <div className={className}>
-      {icon && icon}
-      <input type="text" placeholder={placeholder} />
+    <div className={clsx(className, css.search)}>
+      <input type="text" placeholder={placeholder} className={css.searchInput} />
+      {icon && <IconSearch className={css.searchIcon} />}
     </div>
   );
 };
