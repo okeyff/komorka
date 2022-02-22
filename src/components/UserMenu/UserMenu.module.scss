@@ -5,28 +5,31 @@
 }
 
 .userMenuAvatar {
-    margin-right: 16px;
+    margin-right: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
 }
 
 .userMenuInfo {
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
 }
 
 .userMenuTitle {
-    color: #1b1d21;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 6px;
 }
 
 .userMenuSubtitle {
-    color: #808191;
-    font-size: 12px;
-    line-height: 20px;
-}
-
-.userMenuCaret {
-    fill: #808191;
+    color: #ffffff70;
+    font-size: 14px;
+    line-height: 26px;
 }

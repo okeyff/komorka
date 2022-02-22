@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import avatar from '../../images/Avatar.png';
-import { MdKeyboardArrowDown as IconArrowDown } from 'react-icons/md';
+import avatar from '../../images/UserAvatar.png';
 import css from './UserMenu.module.scss';
 
 interface Props {
@@ -17,10 +16,8 @@ const UserMenu: React.FC<Props> = ({ className }) => {
 
       <div className={css.userMenuInfo}>
         <span className={css.userMenuTitle}>Happy User</span>
-        <span className={css.userMenuSubtitle}>Loggy Fog</span>
+        <span className={css.userMenuSubtitle}>It's you</span>
       </div>
-
-      <IconArrowDown className={css.userMenuCaret} />
     </div>
   );
 };

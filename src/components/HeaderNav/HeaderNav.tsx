@@ -1,51 +1,75 @@
-import React from 'react';
-import { RoutePath } from '../../routes';
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-import Search from '../Search';
-import UserMenu from '../UserMenu';
-import IconButton from '../IconButton';
-import logo from '../../images/logo.png';
-import { MdOutlineNotifications as IconNotifications } from 'react-icons/md';
-import { MdAccessTime as IconClock } from 'react-icons/md';
-import css from './HeaderNav.module.scss';
+import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
+import css from "./HeaderNav.module.scss";
 
-const HeaderNav = () => {
-  return (
-    <div className={css.headerNav}>
+interface Props {
+  className?: string;
+  items?: PropsItem[];
+}
+
+interface PropsItem {
+  className?: string;
+  icon?: React.ReactNode;
+  title?: string;
+  link?: string;
+}
+
+const HeaderNavItem: React.FC<PropsItem> = ({
+  className,
+  icon,
+  title,
+  link,
+}) => {
+  const itemNew = useMemo(() => {
+    if (link) {
+      if (icon) {
+        return (
+          <Link className={css.headerNavListLink} to={link}>
+            {icon}
+          </Link>
+        );
+      } else {
+        return (
+          <Link className={css.headerNavListLink} to={link}>
+            {title}
+          </Link>
+        );
+      }
+    } else {
+      return (
+        <>
+          {icon}
+          {title}
+        </>
+      );
+    }
+    return title;
+  }, []);
+  return <li className={clsx(css.headerNavListItem, className)}>{itemNew}</li>;
+};
+
+const HeaderNav: React.FC<Props> = ({ className, items }) => {
+  const itemsNew = useMemo(() => {
+    return (
       <ul className={css.headerNavList}>
-        <li className={clsx(css.headerNavListItem, css.headerNavListItemLogo)}>
-          <Link to={RoutePath.HOME}>
-            <img className={css.headerNavLogo} src={logo} alt="logo" />
-          </Link>
-        </li>
-
-        <li className={clsx(css.headerNavListItem, css.headerNavSearch)}>
-          <Search placeholder="Search" icon />
-        </li>
-
-        <li className={clsx(css.headerNavListItem, css.headerNavIconButtons)}>
-          <Link to={RoutePath.NOTIFICATIONS} className={css.headerNavIconButtonsLink}>
-            <IconButton>
-              <IconNotifications className={css.headerNavIconButtonsIcon} />
-            </IconButton>
-          </Link>
-
-          <Link to="/" className={css.headerNavIconButtonsLink}>
-            <IconButton>
-              <IconClock className={css.headerNavIconButtonsIcon} />
-            </IconButton>
-          </Link>
-        </li>
-
-        <li className={clsx(css.headerNavListItem, css.headerNavUserMenu)}>
-          <Link to="/">
-            <UserMenu />
-          </Link>
-        </li>
+        {items?.map((item, i) => {
+          const key = i;
+          return (
+            <HeaderNavItem
+              key={key}
+              className={item.className}
+              title={item.title}
+              icon={item.icon}
+              link={item.link}
+            />
+          );
+        })}
       </ul>
-    </div>
-  );
+    );
+  }, [items]);
+
+  return <div className={clsx(css.headerNav, className)}>{itemsNew}</div>;
 };
 
 export default HeaderNav;
