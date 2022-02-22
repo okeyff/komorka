@@ -1,9 +1,11 @@
+@import '../../styles/app/core/variables.scss';
+
 .header {
-    padding: 8px 24px;
-    background: #fff;
+    padding: 14px 74px;
+    background: $primary-color;
     box-shadow: 0 0px 3px -2px #000;
     position: sticky;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
@@ -12,4 +14,15 @@
 .headerTitle {
     font-size: 22px;
     line-height: 32px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerNavListIcon {
+    height: 27px;
+    width: 27px;
 }
