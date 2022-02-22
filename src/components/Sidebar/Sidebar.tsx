@@ -1,53 +1,68 @@
-import { useMemo, useState } from 'react';
-import clsx from 'clsx';
-import { matchPath, useLocation, NavLink } from 'react-router-dom';
-import { IconContext } from 'react-icons';
-import { routes } from '../../routes';
-import { MdOutlineArrowBack as IconArrowLeft } from 'react-icons/md';
-import { MdOutlineArrowForward as IconArrowRight } from 'react-icons/md';
-import css from './Sidebar.module.scss';
+import { useMemo } from "react";
+import clsx from "clsx";
+import { matchPath, useLocation, NavLink } from "react-router-dom";
+import { IconContext } from "react-icons";
+import { routes } from "../../routes";
+import SidebarNav from "../SidebarNav";
+import { MdOutlineSpaceDashboard as IconNews } from "react-icons/md";
+import { MdOutlineChat as IconMessages } from "react-icons/md";
+import { MdOutlinePersonOutline as IconPerson } from "react-icons/md";
+import { MdOutlinePeopleAlt as IconPersons } from "react-icons/md";
+import { MdOutlineEventNote as IconEvents } from "react-icons/md";
+import { MdDateRange as IconCalendar } from "react-icons/md";
+import { MdOutlineTableChart as IconPages } from "react-icons/md";
+import css from "./Sidebar.module.scss";
+
+const testItems = [
+  {
+    title: "Новости",
+    link: "/",
+    icon: <IconNews className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "Сообщения",
+    link: "/messages",
+    icon: <IconMessages className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "Друзья",
+    link: "/notifications",
+    icon: <IconPerson className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "Сообщества",
+    link: "/test1",
+    icon: <IconPersons className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "События",
+    link: "/test1",
+    icon: <IconEvents className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "Календарь",
+    link: "/test1",
+    icon: <IconCalendar className={css.sidebarNavListIcon} />,
+  },
+  {
+    title: "Страницы",
+    link: "/test1",
+    icon: <IconPages className={css.sidebarNavListIcon} />,
+  },
+];
 
 const Sidebar = () => {
-  const [isActive, setIsActive] = useState(false);
   const location = useLocation();
   const currentRoute = useMemo(
     () => routes.find((route) => matchPath(location.pathname, route.path)),
-    [location],
+    [location]
   );
 
   return (
-    <div className={clsx(css.sidebar, !isActive && css.sidebar_active)}>
-      <div
-        className={css.sidebarToggler}
-        onClick={() => {
-          setIsActive(!isActive);
-        }}>
-        {isActive ? (
-          <IconArrowRight className={css.sidebarTogglerIcon} />
-        ) : (
-          <IconArrowLeft className={css.sidebarTogglerIcon} />
-        )}
+    <div className={css.sidebar}>
+      <div className={css.sidebarContainer}>
+        <SidebarNav items={testItems} mainTitle="Меню" />
       </div>
-      <IconContext.Provider value={{ size: '2em' }}>
-        <ul className={css.sidebarList}>
-          {currentRoute?.sidebarNavItems?.map((item) => (
-            <li
-              className={
-                item.bottom
-                  ? clsx(css.sidebarListItem, css.sidebarListItem_bottom)
-                  : css.sidebarListItem
-              }
-              key={item.name}>
-              <NavLink className={css.sidebarListLink} to={item.path}>
-                <div className={css.sidebarIconContainer}>
-                  <item.icon />
-                </div>
-                <span className={css.sidebarListLabel}>{item.name}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </IconContext.Provider>
     </div>
   );
 };
