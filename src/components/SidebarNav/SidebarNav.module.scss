@@ -1,0 +1,59 @@
+@import "../../styles/app/core/variables.scss";
+
+.sidebarNavTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #454545;
+  margin-bottom: 30px;
+}
+
+.sidebarNavList {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarNavListItem {
+  display: flex;
+  align-items: center;
+  color: #707070;
+  transition: color 0.3s ease;
+  position: relative;
+
+  &:hover {
+    color: #454545;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 26px;
+  }
+
+  svg {
+    margin-right: 14px;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.sidebarNavListLink {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #707070;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #454545;
+  }
+
+  &.active {
+    font-weight: 600;
+    color: #454545;
+  }
+}
+
+.sidebarNavNotificationLabel {
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

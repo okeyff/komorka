@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import NotificationLabel from "../NotificationLabel";
 import css from "./HeaderNav.module.scss";
 
 interface Props {
@@ -13,6 +14,7 @@ interface PropsItem {
   icon?: React.ReactNode;
   title?: string;
   link?: string;
+  notificationLabelCount?: number;
 }
 
 const HeaderNavItem: React.FC<PropsItem> = ({
@@ -20,6 +22,7 @@ const HeaderNavItem: React.FC<PropsItem> = ({
   icon,
   title,
   link,
+  notificationLabelCount,
 }) => {
   const itemNew = useMemo(() => {
     if (link) {
@@ -46,7 +49,18 @@ const HeaderNavItem: React.FC<PropsItem> = ({
     }
     return title;
   }, []);
-  return <li className={clsx(css.headerNavListItem, className)}>{itemNew}</li>;
+  return (
+    <li className={clsx(css.headerNavListItem, className)}>
+      {itemNew}
+      {!!notificationLabelCount && (
+        <NotificationLabel
+          className={css.sidebarNavNotificationLabel}
+          count={notificationLabelCount}
+          placement="bottomRight"
+        />
+      )}
+    </li>
+  );
 };
 
 const HeaderNav: React.FC<Props> = ({ className, items }) => {
@@ -58,6 +72,7 @@ const HeaderNav: React.FC<Props> = ({ className, items }) => {
           return (
             <HeaderNavItem
               key={key}
+              notificationLabelCount={item.notificationLabelCount}
               className={item.className}
               title={item.title}
               icon={item.icon}
