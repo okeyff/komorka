@@ -11,6 +11,8 @@ import { MdOutlinePeopleAlt as IconPersons } from "react-icons/md";
 import { MdOutlineEventNote as IconEvents } from "react-icons/md";
 import { MdDateRange as IconCalendar } from "react-icons/md";
 import { MdOutlineTableChart as IconPages } from "react-icons/md";
+import { ReactComponent as IconLogo } from "../../images/logo.svg";
+import Logo from "../Logo";
 import css from "./Sidebar.module.scss";
 
 const testItems = [
@@ -23,6 +25,7 @@ const testItems = [
     title: "Сообщения",
     link: "/messages",
     icon: <IconMessages className={css.sidebarNavListIcon} />,
+    notificationLabelCount: 22,
   },
   {
     title: "Друзья",
@@ -61,6 +64,7 @@ const Sidebar = () => {
   return (
     <div className={css.sidebar}>
       <div className={css.sidebarContainer}>
+        <Logo className={css.sidebarLogo} icon={<IconLogo />} link="/" />
         <SidebarNav items={testItems} mainTitle="Меню" />
       </div>
     </div>

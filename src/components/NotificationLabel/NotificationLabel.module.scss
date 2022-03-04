@@ -1,0 +1,50 @@
+.notificationLabel {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E86250;
+    border-radius: 50%;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    position: absolute;
+    cursor: default;
+    pointer-events: none;
+}
+
+.notificationLabel_topLeft {
+    top: -10px;
+    left: -14p  x;
+}
+
+.notificationLabel_topRight {
+    top: -10px;
+    right: -14px;
+}
+
+.notificationLabel_bottomLeft {
+    bottom: -10px;
+    left: -14px;
+}
+
+.notificationLabel_bottomRight {
+    bottom: -10px;
+    right: -14px;
+}
+
+.notificationLabel_gray {
+    background-color: #898F9C;
+}
+
+.notificationLabel_orange {
+    background-color: #E86250;
+}
+
+.notificationLabel_green {
+    background-color: #198754;
+}
+
+.notificationLabel_blue {
+    background-color: #3C5A99;
+}

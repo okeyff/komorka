@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import NotificationLabel from "../NotificationLabel";
 import css from "./SidebarNav.module.scss";
 
 interface Props {
@@ -14,6 +15,7 @@ interface PropsItem {
   icon?: React.ReactNode;
   title?: string;
   link?: string;
+  notificationLabelCount?: number;
 }
 
 const SidebarNavItem: React.FC<PropsItem> = ({
@@ -21,6 +23,7 @@ const SidebarNavItem: React.FC<PropsItem> = ({
   icon,
   title,
   link,
+  notificationLabelCount,
 }) => {
   const itemNew = useMemo(() => {
     if (link) {
@@ -48,7 +51,17 @@ const SidebarNavItem: React.FC<PropsItem> = ({
     }
     return title;
   }, []);
-  return <li className={clsx(css.sidebarNavListItem, className)}>{itemNew}</li>;
+  return (
+    <li className={clsx(css.sidebarNavListItem, className)}>
+      {itemNew}
+      {!!notificationLabelCount && (
+        <NotificationLabel
+          className={css.sidebarNavNotificationLabel}
+          count={notificationLabelCount}
+        />
+      )}
+    </li>
+  );
 };
 
 const SidebarNav: React.FC<Props> = ({ className, items, mainTitle }) => {
@@ -56,12 +69,13 @@ const SidebarNav: React.FC<Props> = ({ className, items, mainTitle }) => {
     return (
       <>
         <ul className={css.sidebarNavList}>
-        {mainTitle && <div className={css.sidebarNavTitle}>{mainTitle}</div>}
+          {mainTitle && <div className={css.sidebarNavTitle}>{mainTitle}</div>}
           {items?.map((item, i) => {
             const key = i;
             return (
               <SidebarNavItem
                 key={key}
+                notificationLabelCount={item.notificationLabelCount}
                 className={item.className}
                 title={item.title}
                 icon={item.icon}

@@ -17,8 +17,9 @@ interface Props {
 
 const testItems = [
   {
-    link: "/test1",
+    link: "/notifications",
     icon: <IconNotifications className={css.headerNavListIcon} />,
+    notificationLabelCount: 1,
   },
   {
     link: "/test1",
